@@ -1,0 +1,23 @@
+{% extends "blog/base.html" %}
+
+{% block title %}Share a post{% endblock %}
+
+{% block content %}
+  {% if failed %}
+    <h1> E-mail send - SMTP Sender refusal</h1>
+    <p>"{{ post.title }}" was not sent by e-mail.</p>
+    <p>"Error-> {{ fMsg }}"
+  {% else %}
+    {% if sent %}
+       <h1> E-mail successfully send </h1>
+       <p>"{{ post.title }}" was successfully send by e-mail.</p>
+    {% else %}
+     <h1>Share "{{ post.title }}" by e-mail</h1>
+     <form action="." method="post">
+       {{ form.as_p }}
+       {% csrf_token %}
+       <input type="submit" value="Send e-mail">
+     </form>
+    {% endif %}
+  {% endif %}
+{% endblock %}

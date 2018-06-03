@@ -119,3 +119,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Inorder to send email - need a locally configured smtp mail server or
+#     define the configuration of an external smtp runserver
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'mbowen66@gmail.com'
+EMAIL_HOSTR_PASSWORD = ''
+EMAIL_PORT = 587
+EMAIL_USE_RLS = True
